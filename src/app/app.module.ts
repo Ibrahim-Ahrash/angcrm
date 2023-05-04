@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './sections/header/header.component';
 import { SidebarComponent } from './sections/sidebar/sidebar.component';
 import { ListComponent } from './services/services/list/list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ListComponent } from './services/services/list/list.component';
     HomeComponent,
     HeaderComponent,
     SidebarComponent,
-    ListComponent
+    ListComponent,
+    HttpClientModule
   ],
   imports: [
     BrowserModule,
