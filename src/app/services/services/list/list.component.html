@@ -16,6 +16,15 @@
     </div>
 
   </nb-card-header>
+  <!-- <nb-card-body> -->
+  <ag-grid-angular
+  class="ag-theme-alpine"
+  style="height: 500px; width: 100%;"
+   [rowData]="rowData"
+   [columnDefs]="colDefs"
+   [overlayNoRowsTemplate]="'لا يوجد خدمات لعرضها'" style="width: 100%; height:100%;"
 
+  ></ag-grid-angular>
+<!-- </nb-card-body> -->
   <hr>
 </nb-card>

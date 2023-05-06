@@ -4,12 +4,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
-import { NbThemeModule, NbLayoutModule,NbContextMenuModule, NbOverlayContainerAdapter,NbIconLibraries, NbSidebarModule,NbUserModule, NbMenuModule, NbDialogModule, NbToastrModule,NbActionsModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbContextMenuModule, NbOverlayContainerAdapter, NbIconLibraries, NbSidebarModule, NbUserModule, NbMenuModule, NbDialogModule, NbToastrModule, NbActionsModule } from '@nebular/theme';
 import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './sections/header/header.component';
 import { SidebarComponent } from './sections/sidebar/sidebar.component';
 import { ListComponent } from './services/services/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -18,8 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     HeaderComponent,
     SidebarComponent,
-    ListComponent,
-    HttpClientModule
+    ListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,11 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     NbActionsModule,
     NbUserModule,
-    NbContextMenuModule
+    NbContextMenuModule,
+    HttpClientModule,
+    AgGridModule,
+    BrowserAnimationsModule,
+    FormsModule
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
