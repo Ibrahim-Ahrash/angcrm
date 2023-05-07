@@ -4,16 +4,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
-import { NbThemeModule, NbLayoutModule, NbContextMenuModule, NbOverlayContainerAdapter, NbIconLibraries, NbSidebarModule, NbUserModule, NbMenuModule, NbDialogModule, NbToastrModule, NbActionsModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbContextMenuModule, NbSidebarModule, NbUserModule, NbMenuModule, NbDialogModule, NbToastrModule, NbActionsModule, NbPopoverModule } from '@nebular/theme';
 import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './sections/header/header.component';
 import { SidebarComponent } from './sections/sidebar/sidebar.component';
 import { ListComponent } from './services/services/list/list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { FilterComponent } from 'ag-grid-community/dist/lib/components/framework/componentTypes';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
+import { TokenIntersiptService } from './@services/token-intersipt.service';
 
 
 @NgModule({
@@ -42,11 +43,17 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AgGridModule,
     BrowserAnimationsModule,
-    FormsModule
-
+    FormsModule,
+    NbPopoverModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenIntersiptService,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

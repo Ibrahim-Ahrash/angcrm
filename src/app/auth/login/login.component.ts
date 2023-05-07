@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { AuthService } from 'src/app/@services/auth/auth.service';
@@ -15,8 +16,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 export class LoginComponent {
 
   constructor(
-    private http: HttpClient,
-    private login: AuthService
+    private login: AuthService,
+    private router: Router
   ) { }
 
 
@@ -34,14 +35,16 @@ export class LoginComponent {
 
   ErrorMessage = "";
   Error = false;
+
   onSubmit() {
 
     console.log(this.LogInObject);
 
-    if (this.LogInObject.Username == "" || this.LogInObject.Password == "") {
-
+    if (this.LogInObject.Username == "123" || this.LogInObject.Password == "123") {
+      alert("123")
       this.ErrorMessage = "الرجاء تعبئة جميع الحقول";
       this.Error = true;
+
       return;
     }
 
@@ -53,14 +56,14 @@ export class LoginComponent {
 
             localStorage.setItem("UserData", JSON.stringify(res.JsonObject));
             localStorage.setItem("Token", res.JsonObject.AccessToken + ':' + res.JsonObject.UserName)
-            // this.router.navigateByUrl("/home");
+            this.router.navigateByUrl("/home");
             console.log("success")
 
           } else {
 
             this.ErrorMessage = res.Message;
             this.Error = true;
-            console.log("ee")
+            console.log("invalid")
 
           }
 

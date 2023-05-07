@@ -81,7 +81,7 @@ input{
   text-align: center;
   margin-top: 10px;
 }
-button{
+.butt input{
   width: 90%;
   padding: 10px;
   margin: 5px -10px 0 5px;

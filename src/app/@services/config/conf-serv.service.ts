@@ -6,12 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class ConfServService {
 
-  constructor(private http: HttpClient) { }
   private appCofig: any;
+
+  API_IP: string = "http://135.181.133.173:2023/v1"
+  constructor(private http: HttpClient) { }
 
   LoadConfigrations() {
 
-    return this.http.get("assets/config.json")
+    return this.http.get("../../../assets/config.json")
       .toPromise()
       .then(
         res => {
@@ -24,8 +26,7 @@ export class ConfServService {
 
   getAPILink() {
 
-    return this.appCofig.API_IP;
+    return this.API_IP;
   }
 
 }
-

@@ -5,6 +5,8 @@ import { faFilter, faPlus, faTrash, faUsers } from '@fortawesome/free-solid-svg-
 import { ColDef } from 'ag-grid-community';
 import { HttpClient } from '@angular/common/http';
 import { ServicesService } from 'src/app/@services/services.service';
+import { ListModule } from '../../list.module';
+import { NbDialogService, NbToastrService, NbPopoverModule } from '@nebular/theme';
 
 @Component({
   selector: 'app-list',
@@ -17,7 +19,9 @@ export class ListComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private getser: ServicesService
+    private getser: ServicesService,
+    private dailgoService: NbDialogService,
+    private toaster: NbToastrService,
   ) { }
 
   filt = faFilter;
@@ -85,6 +89,9 @@ export class ListComponent implements OnInit {
     }
 
     this.getServiceList();
+  }
+  OpenFilter() {
+    console.log("clickked")
   }
 
 }
