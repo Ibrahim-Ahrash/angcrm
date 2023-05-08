@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { ServicesService } from 'src/app/@services/services.service';
 import { ListModule } from '../../list.module';
 import { NbDialogService, NbToastrService, NbPopoverModule } from '@nebular/theme';
+import { FilterListComponent } from '../filter-list/filter-list.component';
+import { AddServicesComponent } from '../add-services/add-services.component';
 
 @Component({
   selector: 'app-list',
@@ -20,7 +22,7 @@ export class ListComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private getser: ServicesService,
-    private dailgoService: NbDialogService,
+    private diag: NbDialogService,
     private toaster: NbToastrService,
   ) { }
 
@@ -80,6 +82,32 @@ export class ListComponent implements OnInit {
   ]
 
 
+  OpenFilter() {
+    this.diag.open(FilterListComponent,
+      {
+        hasBackdrop: true,
+        closeOnEsc: true,
+        closeOnBackdropClick: true,
+        context: {
+          FilterObject: this.FilterObject
+        }
+      }).onClose.subscribe({
+        next: (filterResult) => {
+          this.FilterObject = filterResult;
+          this.getServiceList();
+        }
+      });
+  }
+
+  addService() {
+    this.diag.open(AddServicesComponent,
+      {
+        hasBackdrop: true,
+        closeOnEsc: true,
+        closeOnBackdropClick: true
+      })
+  }
+
 
   ngOnInit(): void {
 
@@ -89,9 +117,6 @@ export class ListComponent implements OnInit {
     }
 
     this.getServiceList();
-  }
-  OpenFilter() {
-    console.log("clickked")
   }
 
 }

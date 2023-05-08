@@ -28,5 +28,26 @@ export class ServicesService {
 
     return this.http.get(`${this.conf.getAPILink()}/api/Services/Requests/Get/${ServiceRequestID_PK}`)
   }
+  AddNewService(ServiceObject): Observable<any> {
+
+    return this.http.post(`${this.conf.getAPILink()}/api/Services/Add`, ServiceObject)
+  }
+
+
+  getServicesBySystemModule(SystemModelID_PK): Observable<any> {
+
+    return this.http.get(`${this.conf.getAPILink()}/api/Services/Get/SystemModuleID/${SystemModelID_PK}`)
+  }
+
+
+  DeleteService(ServiceID): Observable<any> {
+
+    return this.http.delete(`${this.conf.getAPILink()}/api/Services/Remove/${ServiceID}`)
+  }
+
+  getCustomersBySerach(SearchObject): Observable<any> {
+
+    return this.http.post(`${this.conf.getAPILink()}/api/CustomersBO/Branches/SearchValue`, SearchObject)
+  }
 }
 
