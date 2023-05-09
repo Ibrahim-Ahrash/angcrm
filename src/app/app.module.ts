@@ -15,7 +15,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { TokenIntersiptService } from './@services/token-intersipt.service';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,8 @@ import { TokenIntersiptService } from './@services/token-intersipt.service';
     FormsModule,
     NbPopoverModule,
     NbCardModule,
-    NbButtonModule
+    NbButtonModule,
+    ReactiveFormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

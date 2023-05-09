@@ -33,7 +33,6 @@ export class ServicesService {
     return this.http.post(`${this.conf.getAPILink()}/api/Services/Add`, ServiceObject)
   }
 
-
   getServicesBySystemModule(SystemModelID_PK): Observable<any> {
 
     return this.http.get(`${this.conf.getAPILink()}/api/Services/Get/SystemModuleID/${SystemModelID_PK}`)

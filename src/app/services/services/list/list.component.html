@@ -8,7 +8,7 @@
         <nb-action (click)="addService()" nbPopover="إضافة خدمة" nbPopoverTrigger="hover" nbPopoverPlacement="bottom">
           <fa-icon class="leftIcon plus" [icon]="plus"></fa-icon>
         </nb-action>
-        <nb-action nbPopover="حذف الخدمة" nbPopoverTrigger="hover" nbPopoverPlacement="bottom">
+        <nb-action (click)="confirmDelet()" nbPopover="حذف الخدمة" nbPopoverTrigger="hover" nbPopoverPlacement="bottom">
           <fa-icon class="leftIcon" [icon]="trash"></fa-icon>
         </nb-action>
       </nb-action>

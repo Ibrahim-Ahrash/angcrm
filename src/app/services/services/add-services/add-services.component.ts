@@ -1,8 +1,9 @@
 import { NbButtonModule, NbDialogRef, NbToastrService } from '@nebular/theme';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormValidationService } from 'src/app/@services/form-validation.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServicesService } from 'src/app/@services/services.service';
+
 
 @Component({
   selector: 'app-add-services',
@@ -10,6 +11,7 @@ import { ServicesService } from 'src/app/@services/services.service';
   styleUrls: ['./add-services.component.css']
 })
 export class AddServicesComponent {
+  af: any;
 
   constructor(
     private validation: FormValidationService,
@@ -22,7 +24,6 @@ export class AddServicesComponent {
   ServicesModule = [];
   ShowResultMenu = false;
   Customers = [];
-
 
   SearchObject = {
 
@@ -38,6 +39,20 @@ export class AddServicesComponent {
     ApplicantPhoneNumber: new FormControl('', [Validators.required, this.validation.ValidatePhoneNumber])
   })
 
+
+  MarkInvalidControls() {
+
+    const controls = this.ServiceForm.controls;
+
+    for (const name in controls) {
+      if (controls[name].invalid) {
+
+        controls[name].markAsTouched({ onlySelf: true });
+      }
+    }
+
+  }
+
   onSubmit() {
 
     if (this.SelectedCustomer == null) {
@@ -46,7 +61,7 @@ export class AddServicesComponent {
       return;
     }
 
-    // if(this.ServiceForm.invalid){
+    // if (this.ServiceForm.invalid) {
 
     //   this.MarkInvalidControls()
     //   return;
@@ -54,7 +69,10 @@ export class AddServicesComponent {
 
 
     var ServiceObject = this.ServiceForm.getRawValue();
+    console.log("fff");
+    console.log(ServiceObject);
     ServiceObject.branchesIDs = [this.SelectedCustomer.BranchID_PK];
+    console.log("clicked2")
 
     console.log(ServiceObject);
     this.service.AddNewService(ServiceObject)
@@ -62,11 +80,13 @@ export class AddServicesComponent {
         next: (res) => {
 
           if (res.StatusCode == 200) {
+            console.log("clicked1")
             this.toaster.success("تمت العملية", "تمت عملية إضافة الخدمة بنجاح");
             this.dailogref.close(true);
           } else {
 
             this.toaster.danger("حدث خطأ", res.Message)
+            console.log("clicked4")
           }
 
           console.log(res);
@@ -74,13 +94,16 @@ export class AddServicesComponent {
         }
       })
 
+
   }
+
   close() {
     this.dailogref.close(false);
   }
   SaveCustomerData(CustomerObject, branch) {
 
 
+    console.log("branc")
     console.log(branch);
 
     branch.value = CustomerObject.Name;
@@ -89,7 +112,7 @@ export class AddServicesComponent {
 
     this.ServiceForm.get("ApplicantName").setValue(CustomerObject.BranchMangerName)
     this.ServiceForm.get("ApplicantPhoneNumber").setValue(CustomerObject.BranchMangerPhoneNumber)
-    this.ServiceForm.get("ServiceID_FK").setValue(0)
+    this.ServiceForm.get("ServiceID_FK").setValue(1022)
 
     console.log(CustomerObject);
 
@@ -136,5 +159,6 @@ export class AddServicesComponent {
 
     setTimeout(() => this.ShowResultMenu = false, 500)
   }
+
 
 }
