@@ -1,23 +1,21 @@
-.mainCard{
+.mainCard {
   width: 100%;
   height: 100%;
 }
 
-
-.cardHead{
+.cardHead {
   background-color: #ffff;
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
 
-.leftIcon{
-  color:#006fd6;
+.leftIcon {
+  color: #006fd6;
   margin: 20px 20px 0 10px;
   cursor: pointer;
-
 }
-.plus{
+.plus {
   display: inline-block;
   border-left: 1px solid silver;
   border-right: 1px solid silver;
@@ -25,18 +23,15 @@
   width: 50px;
 }
 
-
-
-
-.right{
+.right {
   display: flex;
 }
-.right h2{
+.right h2 {
   font-size: revert;
   padding: 5px;
 }
-.right .icon{
-  color:#006fd6;
+.right .icon {
+  color: #006fd6;
   margin: 10px 5px 0 0;
 }
 /* @import "~bootstrap/dist/css/bootstrap.css"; */

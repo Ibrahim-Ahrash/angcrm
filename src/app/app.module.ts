@@ -4,7 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbContextMenuModule, NbSidebarModule, NbUserModule, NbMenuModule, NbDialogModule, NbToastrModule, NbActionsModule, NbPopoverModule, NbButtonModule } from '@nebular/theme';
+import { NbThemeModule, NbButtonModule, NbLayoutModule, NbCardModule, NbContextMenuModule, NbSidebarModule, NbUserModule, NbMenuModule, NbDialogModule, NbToastrModule, NbActionsModule, NbPopoverModule, NbInputModule } from '@nebular/theme';
 import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './sections/header/header.component';
 import { SidebarComponent } from './sections/sidebar/sidebar.component';
@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { TokenIntersiptService } from './@services/token-intersipt.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CompanyComponent } from './services/company/company/company.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     HeaderComponent,
     SidebarComponent,
-    ListComponent
+    ListComponent,
+    CompanyComponent
 
   ],
   imports: [
@@ -45,8 +48,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     NbPopoverModule,
     NbCardModule,
+    ReactiveFormsModule,
     NbButtonModule,
-    ReactiveFormsModule
+    NbInputModule
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

@@ -10,6 +10,7 @@ import { NbDialogService, NbToastrService, NbPopoverModule } from '@nebular/them
 import { FilterListComponent } from '../filter-list/filter-list.component';
 import { AddServicesComponent } from '../add-services/add-services.component';
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -121,13 +122,34 @@ export class ListComponent implements OnInit {
   }
   colDefs: ColDef[] = [
 
-    { field: 'تفاصيل الخدمة' },
-    { field: 'حالة الخدمة' },
-    { field: 'نوع الخدمة' },
-    { field: 'تاريخ الإنشاء ' },
-    { field: 'فرع الزبون ' },
-    { field: 'الفرع ' },
-    { field: 'رقم الطلب ' }
+    {
+      field: 'Note',
+      headerName: 'تفاصيل الخدمة',
+    },
+    {
+      field: 'ServiceStatusCaption',
+      headerName: 'حالة الخدمة',
+    },
+    {
+      field: 'ServiceCaption',
+      headerName: 'نوع الخدمة',
+    },
+    {
+      field: 'CreatedDate',
+      headerName: 'تاريخ الانشاء',
+    },
+    {
+      field: 'BranchName',
+      headerName: 'فرع الزبون',
+    },
+    {
+      field: 'CurrentBranchName',
+      headerName: 'الفرع',
+    },
+    {
+      field: 'ServiceRequestID_PK',
+      headerName: 'رقم الطلب',
+    }
 
   ]
 

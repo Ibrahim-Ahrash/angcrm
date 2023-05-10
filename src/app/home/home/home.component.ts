@@ -15,7 +15,7 @@ import { HomeModule } from '../home.module';
       <app-list></app-list>
     </nb-layout-column>
   </nb-layout>
-  <!-- <app-filter-list></app-filter-list> -->
+
 
 `,
   styleUrls: ['./home.component.css']
